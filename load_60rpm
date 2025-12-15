@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+URL="http://127.0.0.1:8000/proxy"
+
+while true; do
+  ts=$(date +"%H:%M:%S")
+  out=$(curl -s -w "  time_total=%{time_total}\n" "$URL")
+  echo "[$ts] $out"
+  sleep 1
+done
+
